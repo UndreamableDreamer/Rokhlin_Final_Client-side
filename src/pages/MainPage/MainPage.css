@@ -1,0 +1,11 @@
+.parent {
+  display: grid;
+  grid-template: 
+  'nav nav nav' auto
+  '. posts .' auto
+  / 1fr 2fr 1fr;
+}
+
+.parent__all-news {
+  grid-area: posts;
+}

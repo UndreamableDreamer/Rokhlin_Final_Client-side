@@ -1,0 +1,23 @@
+.navbar {
+  grid-area: nav;
+  width: 100%;
+  height: 50px;
+  margin: 0px;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  background: rgb(52, 58, 64);
+  display: grid;
+  grid-template: 
+  '. button . account' auto
+  / 30px 1fr 3fr 1fr ;
+}
+
+.navbar__main-redirect {
+  grid-area: button;
+  background: no-repeat center /70% url(./assets/brilliance.svg);
+  border: 0px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
