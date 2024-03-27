@@ -1,0 +1,57 @@
+.post {
+  display: grid;
+  grid-template: 
+  "header header header" auto
+  "content content content" auto
+  "tags tags meta" auto 
+  / 1fr 1fr 1fr;
+  border: 1.5px black solid;
+  border-radius: 10px;
+  padding: 10px 10px 0px 10px;
+  max-width: 600px;
+  background: rgb(239, 222, 214);
+}
+
+.post * {
+  margin: 5px;
+}
+
+.post__title {
+  grid-area: header;
+  font-size: 27px;
+}
+
+.post__content {
+  grid-area: content;
+  margin: 3px 10px;
+}
+
+.post__tags {
+  grid-area: tags;
+  align-self: center;
+  font-size: 14px;
+  opacity: 90%;
+}
+
+.post__meta {
+  grid-area: meta;
+  display: grid;
+  grid-template:
+  "author"
+  "createdAt";
+}
+
+.meta__author {
+  grid-area: author;
+  font-style: italic;
+  font-size: 12px;
+  opacity: 60%;
+}
+
+.meta__created-at {
+  grid-area: createdAt;
+  font-style: italic;
+  font-size: 12px;
+  opacity: 60%;
+}
+
