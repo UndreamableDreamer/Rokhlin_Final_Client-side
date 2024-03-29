@@ -15,3 +15,16 @@ export interface PostInterface {
   }
   tags: Tag[];
 }
+export interface PayloadInterface {
+  posts: PostInterface[],
+  isLoading: boolean,
+  error: null,
+}
+export interface StoreInterface {
+  posts: PayloadInterface,
+}
+
+export interface ActionInterface {
+  type: string,
+  payload: PayloadInterface;
+}

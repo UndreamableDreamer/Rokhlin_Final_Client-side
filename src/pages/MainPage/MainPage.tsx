@@ -1,16 +1,26 @@
-import { PostsListProps } from "../../components/Posts/Post.props";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+
+import { value } from "../../redux/reducers/posts/postsReducer";
+import { getAllPosts } from "../../redux/actions/action";
+import { StoreInterface } from "../../types/types";
 import Posts from "../../components/Posts/Post";
-import NavBar from "../../components/NavBar/NavBar";
 
 import './MainPage.css'
 
 
-const MainPage = ({ posts } : PostsListProps) => {
+const MainPage = () => {
+  const {loading, error, posts} = useSelector((store: StoreInterface)=> store.posts)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getAllPosts(value))
+  },[])
+
+  console.log(posts)
   return (
     <section className="parent">
-      <NavBar/>
       <div className="parent__all-news">
-      <Posts posts = { posts } />
+        <Posts posts={ posts } />
       </div>
     </section>
   );
