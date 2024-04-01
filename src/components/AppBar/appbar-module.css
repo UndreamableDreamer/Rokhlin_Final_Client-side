@@ -1,0 +1,10 @@
+.wrapper {
+  height: 50px;
+  background: black !important;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.toolbar__title {
+  font-family: unset !important;
+}

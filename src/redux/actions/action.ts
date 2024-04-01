@@ -1,6 +1,5 @@
-import { PostInterface } from "../../types/types";
+import { GET_POSTS } from '../actionTypes';
 
-export const getAllPosts = ( payload: PostInterface[] ) => ({
-  type: 'Valueqwerty',
-  payload,
-})
+export const getAllPosts = () => ({
+  type: GET_POSTS,
+});

@@ -1,9 +1,8 @@
-import { Tags } from "./PostTags.props";
-import './PostTags.css'
+import { Tags } from './PostTags.props';
 
 const PostTags = ({ tags }: Tags) => {
   return (
-    <div className='post__tags tag-array'>Теги:
+    <div className='meta__tags tag-array'>Теги:
       {tags.map(tag => (
         <p className='tag-array__element' key={tag.id}>{tag.name}</p>
       ))}

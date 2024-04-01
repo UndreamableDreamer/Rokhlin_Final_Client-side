@@ -1,13 +1,13 @@
-import { memo } from 'react';
+import NavBar from './components/AppBar/AppBar';
 import MainPage from './pages/MainPage/MainPage';
-import NavBar from './components/NavBar/NavBar';
 
-const App = memo(() => {
+const App = () => {
   return (
   <>
-      <NavBar />
-      <MainPage /></>
+    <NavBar />
+    <MainPage />
+  </>
   );
-}
-)
+};
+
 export default App;

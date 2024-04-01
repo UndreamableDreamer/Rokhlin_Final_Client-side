@@ -2,13 +2,12 @@ export interface Tag {
   id: number;
   name: string;
 }
-
 export interface PostInterface {
   id: number;
   title: string;
   content: string;
-  imageUrl?: string | null;
-  updatedAt: string;
+  imageUrl?: string;
+  updatedAt: string | Date;
   user: {
     id: number;
     login: string;
@@ -23,8 +22,6 @@ export interface PayloadInterface {
 export interface StoreInterface {
   posts: PayloadInterface,
 }
-
-export interface ActionInterface {
+export interface PostAction {
   type: string,
-  payload: PayloadInterface;
 }
