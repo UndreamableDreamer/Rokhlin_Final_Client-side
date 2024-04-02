@@ -1,21 +1,24 @@
-import EachPost from '../EachPost/EachPost';
+import formatDate from '../../helpers/formatDate';
+import PostCard from '../PostCard/PostCard';
 
 import { PostsListProps } from './Posts.props';
 import './posts-module.css';
 
 const Posts = ({ posts } : PostsListProps) => {
+  console.log(posts);
   return (
-    <article className='parent__wrapper wrapper'>
+    <article className='parent__news news'>
       {posts.map(post =>
-        <EachPost
-          id={post.id}
-          title={post.title}
-          content={post.content}
-          imageUrl={post.imageUrl}
-          updatedAt={new Date(post.updatedAt)}
-          user={post.user}
-          tags={post.tags}
-        />
+        <div className='news__wrapper wrapper' key={post.id}>
+          <PostCard
+            title={post.title}
+            content={post.content}
+            imageUrl={post.imageUrl}
+            updatedAt={formatDate(post.updatedAt)}
+            user={post.user}
+            tags={post.tags}
+          />
+        </div>
       )}
     </article>
   );

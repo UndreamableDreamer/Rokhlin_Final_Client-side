@@ -7,21 +7,38 @@ export interface PostInterface {
   title: string;
   content: string;
   imageUrl?: string;
-  updatedAt: string | Date;
+  updatedAt: string;
   user: {
     id: number;
     login: string;
   }
   tags: Tag[];
 }
-export interface PayloadInterface {
-  posts: PostInterface[],
+
+export interface PostCardDataInterface {
+  title: string;
+  content: string;
+  imageUrl?: string;
+  updatedAt: string;
+  user: {
+    id: number;
+    login: string;
+  }
+  tags: Tag[];
+}
+
+export interface StateInterface {
+  posts: PostInterface[] | [],
   isLoading: boolean,
-  error: null,
+  error: string | null,
 }
-export interface StoreInterface {
-  posts: PayloadInterface,
-}
+
 export interface PostAction {
   type: string,
+  payload?: PostInterface[]
+  error?: string,
+}
+
+export interface StoreInterface {
+  posts: StateInterface,
 }

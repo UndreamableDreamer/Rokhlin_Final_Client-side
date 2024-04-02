@@ -1,6 +1,0 @@
-.parent {
-  display: grid;
-  grid-template:
-  '. posts .' auto
-  / 1fr 5fr 1fr;
-}

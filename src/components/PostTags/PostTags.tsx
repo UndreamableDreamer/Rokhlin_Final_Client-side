@@ -2,11 +2,11 @@ import { Tags } from './PostTags.props';
 
 const PostTags = ({ tags }: Tags) => {
   return (
-    <div className='meta__tags tag-array'>Теги:
+    <span className='meta__tags tag-array'>Теги:
       {tags.map(tag => (
-        <p className='tag-array__element' key={tag.id}>{tag.name}</p>
+        <span className='tag-array__element' key={tag.id}>{tag.name}</span>
       ))}
-    </div>
+    </span>
   );
 };
 
