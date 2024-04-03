@@ -8,15 +8,15 @@ import PostTags from '../PostTags/PostTags';
 
 import './post-card-module.css';
 
-export default function PostCard(
+const PostCard = (
   { 
   title, 
   content, 
   imageUrl, 
   updatedAt, 
   user, 
-  tags }: PostInterface ) 
-  {
+  tags }: PostInterface 
+  ) => {
   return (
     <Card className='wrapper__post post'>
       <CardMedia className='post__media'
@@ -43,4 +43,6 @@ export default function PostCard(
       </CardContent>
     </Card>
   );
-}
+};
+
+export default PostCard;

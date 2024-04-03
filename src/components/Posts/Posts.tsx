@@ -5,7 +5,6 @@ import { PostsListProps } from './Posts.props';
 import './posts-module.css';
 
 const Posts = ({ posts } : PostsListProps) => {
-  console.log(posts);
   return (
     <article className='parent__news news'>
       {posts.map(post =>

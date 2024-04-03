@@ -1,4 +1,4 @@
-export interface Tag {
+export interface TagInterface {
   id: number;
   name: string;
 }
@@ -12,7 +12,7 @@ export interface PostInterface {
     id: number;
     login: string;
   }
-  tags: Tag[];
+  tags: TagInterface[];
 }
 
 export interface StateInterface {

@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import './appbar-module.css';
 
-export default function NavBar() {
+export const NavBar = () => {
   return (
     <Box className='parent__navbar navbar' sx={{ flexGrow: 1 }}>
       <AppBar className='navbar__wrapper wrapper' position="static">
@@ -30,4 +30,5 @@ export default function NavBar() {
       </AppBar>
     </Box>
   );
-}
+};
+

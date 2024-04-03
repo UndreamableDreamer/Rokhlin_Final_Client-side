@@ -1,5 +1,5 @@
-import { Tag } from '../../types/types';
+import { TagInterface } from '../../types/types';
 
-export interface Tags {
-  tags: Tag[];
+export interface TagsProps {
+  tags: TagInterface[];
 }

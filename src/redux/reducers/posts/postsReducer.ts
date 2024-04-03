@@ -7,7 +7,10 @@ const initialState = {
   error: null,
 };
 
-export const postsReducer = (state: StateInterface = initialState, action: PostActionInterface) => {
+export const postsReducer = (
+    state: StateInterface = initialState, 
+    action: PostActionInterface 
+  ) => {
   switch (action.type) {
     case REQUEST_POSTS:
       return {
