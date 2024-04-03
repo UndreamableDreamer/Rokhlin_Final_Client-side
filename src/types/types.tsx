@@ -3,19 +3,7 @@ export interface Tag {
   name: string;
 }
 export interface PostInterface {
-  id: number;
-  title: string;
-  content: string;
-  imageUrl?: string;
-  updatedAt: string;
-  user: {
-    id: number;
-    login: string;
-  }
-  tags: Tag[];
-}
-
-export interface PostCardDataInterface {
+  id?: number;
   title: string;
   content: string;
   imageUrl?: string;
@@ -33,12 +21,12 @@ export interface StateInterface {
   error: string | null,
 }
 
-export interface PostAction {
+export interface PostActionInterface {
   type: string,
   payload?: PostInterface[]
   error?: string,
 }
 
-export interface StoreInterface {
-  posts: StateInterface,
+export interface ErrorMessageInterface {
+  error: string | null,
 }

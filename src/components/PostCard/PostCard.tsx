@@ -3,12 +3,20 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
-import { PostCardDataInterface } from '../../types/types';
+import { PostInterface } from '../../types/types';
 import PostTags from '../PostTags/PostTags';
 
 import './post-card-module.css';
 
-export default function PostCard({title, content, imageUrl, updatedAt, user, tags}: PostCardDataInterface) {
+export default function PostCard(
+  { 
+  title, 
+  content, 
+  imageUrl, 
+  updatedAt, 
+  user, 
+  tags }: PostInterface ) 
+  {
   return (
     <Card className='wrapper__post post'>
       <CardMedia className='post__media'
@@ -28,7 +36,9 @@ export default function PostCard({title, content, imageUrl, updatedAt, user, tag
         <Typography className='content__meta meta' variant='body2' color='text.secondary'>
           <PostTags tags={tags}/>
           <label className='meta__author'>Автор: {user.login}</label>
-          <label className='meta__updated-at'>Последнее обновление: {updatedAt.toLocaleString()}</label>
+          <label className='meta__updated-at'>
+            Последнее обновление: {updatedAt.toLocaleString()}
+          </label>
         </Typography>
       </CardContent>
     </Card>

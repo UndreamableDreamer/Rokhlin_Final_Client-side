@@ -11,14 +11,11 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'react-hooks/exhaustive-deps': 'off',
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'react-refresh/only-export-components': [ 'warn', { allowConstantExport: true }, ],
     'semi': 'off',
-    '@typescript-eslint/semi': [
-      'error',
-      'always'
-    ],
+    '@typescript-eslint/semi': [ 'error', 'always' ],
+    "@typescript-eslint/quotes": ["error", "single"],
+    "eol-last": ["error", "always"],
+    "max-len": ["error", { "code": 100 }]
   },
 }
