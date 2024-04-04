@@ -1,5 +1,5 @@
 import { PostInterface } from '../../types/types';
 
-export interface PostsListProps {
+export interface PostsProps {
   posts: PostInterface[];
 }

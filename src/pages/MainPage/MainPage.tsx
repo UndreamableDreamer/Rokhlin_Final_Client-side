@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../misc/hooks';
-import { Error, NoData } from '../../components/Error/Error';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { Status } from '../../components/Status/Status';
 import { getAllPosts } from '../../redux/actions/action';
-import Loading from '../../components/Spinner/Loading';
+import Loading from '../../components/Loading/Loading';
 import Posts from '../../components/Posts/Posts';
 
 const MainPage = () => {
@@ -15,21 +15,20 @@ const MainPage = () => {
   useEffect(()=>{
     dispatch(getAllPosts());
   },[]);
-
-  switch(true) {
-    case(!!errorMessage):
-      return <Error error={errorMessage}/>;
-    case(!!isLoading):
-      return <Loading />;
-    case(posts.length > 0):
-      return (
+  return (
+    <>
+      {errorMessage && <Status error={errorMessage} severity='error' />}
+      {isLoading && <Loading />}
+      {posts.length > 0 && (
         <section className='parent'>
           <Posts posts={posts} />
         </section>
-      );
-    default:
-      return <NoData error={'Nothing to show!'} />;
-  }
+      )}
+      {!errorMessage && !isLoading && posts.length === 0 && (
+        <Status error={errorMessage} severity='info' />
+      )}
+    </>
+  );
 };
 
 export default MainPage;

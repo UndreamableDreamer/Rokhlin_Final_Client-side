@@ -1,25 +1,24 @@
-import formatDate from '../../helpers/formatDate';
+import { Box } from '@mui/material';
 import PostCard from '../PostCard/PostCard';
 
-import { PostsListProps } from './Posts.props';
-import './posts-module.css';
+import { PostsProps } from './Posts.props';
+import { news } from './posts.module';
 
-const Posts = ({ posts } : PostsListProps) => {
+const Posts = ({ posts }: PostsProps) => {
   return (
-    <article className='parent__news news'>
+    <Box className='parent__news news' sx={news}>
       {posts.map(post =>
-        <div className='news__wrapper wrapper' key={post.id}>
-          <PostCard
-            title={post.title}
-            content={post.content}
-            imageUrl={post.imageUrl}
-            updatedAt={formatDate(post.updatedAt)}
-            user={post.user}
-            tags={post.tags}
-          />
-        </div>
+        <PostCard
+          key={post.id}
+          title={post.title}
+          content={post.content}
+          imageUrl={post.imageUrl}
+          updatedAt={post.updatedAt}
+          user={post.user}
+          tags={post.tags}
+        />
       )}
-    </article>
+    </Box>
   );
 };
 

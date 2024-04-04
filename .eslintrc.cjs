@@ -16,6 +16,8 @@ module.exports = {
     '@typescript-eslint/semi': [ 'error', 'always' ],
     "@typescript-eslint/quotes": ["error", "single"],
     "eol-last": ["error", "always"],
-    "max-len": ["error", { "code": 100 }]
+    "max-len": ["error", { "code": 100 }],
+    "max-depth": ["error", { "max": 2 }],
+    "indent": ["error", 2],
   },
 }

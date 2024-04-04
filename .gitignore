@@ -13,7 +13,7 @@ dist-ssr
 *.local
 .history
 .vscode
-.deprecated.ts
+.deprecated.tsx
 
 #Confidentional
 .env

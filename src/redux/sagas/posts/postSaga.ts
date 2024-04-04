@@ -3,9 +3,9 @@ import { takeLatest, put, call } from 'redux-saga/effects';
 import { AxiosError } from 'axios';
 
 import { requestError, requestSuccess } from '../../actions/action';
-import { ERROR_TEXT } from '../../../misc/constants';
+import { ERROR_TEXT } from '../../constants';
 import { PostInterface } from '../../../types/types';
-import { REQUEST_POSTS } from '../../actionTypes';
+import { POSTS_REQUEST } from '../../actionTypes';
 import { getPosts } from '../../api/getPosts';
 
 function* getAllPostsSaga() {
@@ -19,5 +19,5 @@ function* getAllPostsSaga() {
 }
 
 export default function* watcherSaga() {
-  yield takeLatest(REQUEST_POSTS, getAllPostsSaga);
+  yield takeLatest(POSTS_REQUEST, getAllPostsSaga);
 }

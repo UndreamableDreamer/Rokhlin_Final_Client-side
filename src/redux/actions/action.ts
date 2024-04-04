@@ -1,16 +1,16 @@
 import { PostInterface } from '../../types/types';
-import { REQUEST_POSTS, REQUEST_POSTS_ERROR, REQUEST_POSTS_SUCCESS } from '../actionTypes';
+import { POSTS_REQUEST, POSTS_REQUEST_ERROR, POSTS_REQUEST_SUCCESS } from '../actionTypes';
 
 export const getAllPosts = () => ({
-  type: REQUEST_POSTS,
+  type: POSTS_REQUEST,
 });
 
 export const requestSuccess = (payload: PostInterface[]) => ({
-  type: REQUEST_POSTS_SUCCESS,
+  type: POSTS_REQUEST_SUCCESS,
   payload,
 });
 
 export const requestError = (error: string) => ({
-  type: REQUEST_POSTS_ERROR,
+  type: POSTS_REQUEST_ERROR,
   error,
 });

@@ -1,6 +1,6 @@
-const formatDate = (updatedAt: string) => {
-  const toFormat = new Date(updatedAt);
-  return toFormat.toLocaleString();
+const formatDate = (updatedAt: string): string => {
+  const formattedDate = new Date(updatedAt);
+  return formattedDate.toLocaleString();
 };
 
 export default formatDate;

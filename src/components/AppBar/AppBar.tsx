@@ -6,26 +6,29 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import './appbar-module.css';
 
+import { grow, navWrapper, navTitle, navIcon } from './app-bar.module';
+// redo sx 
 export const NavBar = () => {
   return (
-    <Box className='parent__navbar navbar' sx={{ flexGrow: 1 }}>
-      <AppBar className='navbar__wrapper wrapper' position="static">
+    <Box className='parent__navbar navbar' sx={grow}> 
+      <AppBar className='navbar__wrapper wrapper' sx={navWrapper}>
         <Toolbar className='wrapper__toolbar toolbar'>
-          <IconButton className='toolbar__icon-button'
-            size="large"
-            edge="start"
-            color="inherit"
+          <IconButton 
+            className='toolbar__icon-button'
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={navIcon}
           >
-            <MenuIcon />
+            <MenuIcon className='toolbar__icon'/>
           </IconButton>
-          <Typography className='toolbar__title' variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography 
+            className='toolbar__title' 
+            variant="h6" 
+            component="div" 
+            sx={[grow, navTitle]}>
             News
           </Typography>
-          <Button className='toolbar__login-button' color="inherit">Login</Button>
+          <Button className='toolbar__login' color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </Box>

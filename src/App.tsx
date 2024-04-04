@@ -3,10 +3,10 @@ import MainPage from './pages/MainPage/MainPage';
 
 const App = () => {
   return (
-  <>
-    <NavBar />
-    <MainPage />
-  </>
+    <>
+      <NavBar />
+      <MainPage />
+    </>
   );
 };
 
