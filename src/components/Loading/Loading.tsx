@@ -1,8 +1,8 @@
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
-import './loading.module';
-import { spinner } from './loading.module';
+import './styles';
+import { spinner } from './styles';
 
 const Loading = () => {
   return (

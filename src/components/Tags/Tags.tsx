@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 
 import { TagsProps } from './tags.props';
-import { tagStyle, tagsStyle } from './tags.module';
+import { tagStyle, tagsStyle } from './styles';
 
 const Tags = ({ tags }: TagsProps) => {
   return (

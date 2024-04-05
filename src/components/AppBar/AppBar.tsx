@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 
-import { grow, navWrapper, navTitle, navIcon } from './app-bar.module';
+import { grow, navWrapper, navTitle, navIcon } from './styles';
 // redo sx 
 export const NavBar = () => {
   return (

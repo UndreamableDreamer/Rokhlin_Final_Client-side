@@ -9,14 +9,12 @@ import Tags from '../Tags/Tags';
 
 import { 
   postMedia, 
-  postAuthor, 
-  postContentText, 
-  postInfo, 
-  postMeta, 
-  postUpdatedAt, 
-  secondaryColor, 
-  postWrapper 
-} from './post-card.module';
+  postWrapper, 
+  authorStyle,
+  contentStyle,
+  metaStyle,
+  dateStyle
+} from './styles';
 import { Box } from '@mui/material';
 
 const PostCard = (
@@ -42,18 +40,18 @@ const PostCard = (
         <Typography 
           className='content__text' 
           variant='body2'
-          sx={[postContentText, secondaryColor]}>
+          sx={contentStyle}>
           {content}
         </Typography>
         <Box
           className='content__meta meta' 
-          sx={[postMeta, secondaryColor]} 
+          sx={metaStyle} 
         >
           <Tags tags={tags} />
-          <Typography className='meta__author' sx={[postAuthor, postInfo]} >
+          <Typography className='meta__author' sx={authorStyle} >
             Автор: {user.login} 
           </Typography>
-          <Typography className='meta__updated-at' sx={[postUpdatedAt, postInfo]}>
+          <Typography className='meta__updated-at' sx={dateStyle}>
             Последнее обновление: {formatDate(updatedAt.toLocaleString())}
           </Typography>
         </Box>

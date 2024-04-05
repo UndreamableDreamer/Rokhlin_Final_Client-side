@@ -15,16 +15,14 @@ const MainPage = () => {
   useEffect(()=>{
     dispatch(getAllPosts());
   },[]);
+
+  if (isLoading) return <Loading />;
+
   return (
     <>
-      {errorMessage && <Status error={errorMessage} severity='error' />}
-      {isLoading && <Loading />}
-      {posts.length > 0 && (
-        <section className='parent'>
-          <Posts posts={posts} />
-        </section>
-      )}
-      {!errorMessage && !isLoading && posts.length === 0 && (
+      {errorMessage !== null && <Status error={errorMessage} severity='error' />}
+      {posts.length > 0 && <Posts posts={posts} />}
+      {!errorMessage && posts.length === 0 && (
         <Status error={errorMessage} severity='info' />
       )}
     </>

@@ -2,11 +2,11 @@ import { Box } from '@mui/material';
 import PostCard from '../PostCard/PostCard';
 
 import { PostsProps } from './Posts.props';
-import { news } from './posts.module';
+import { news } from './styles';
 
 const Posts = ({ posts }: PostsProps) => {
   return (
-    <Box className='parent__news news' sx={news}>
+    <Box className='news' sx={news}>
       {posts.map(post =>
         <PostCard
           key={post.id}
