@@ -3,10 +3,10 @@ import { takeLatest, put, call } from 'redux-saga/effects';
 import { AxiosError } from 'axios';
 
 import { requestError, requestSuccess } from '../../actions/action';
-import { ERROR_TEXT } from '../../constants';
 import { PostInterface } from '../../../types/types';
 import { POSTS_REQUEST } from '../../actionTypes';
 import { getPosts } from '../../api/getPosts';
+import { ERROR_TEXT } from '../../constants';
 
 function* getAllPostsSaga() {
   try {

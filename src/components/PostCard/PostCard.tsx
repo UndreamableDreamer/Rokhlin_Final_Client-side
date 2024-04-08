@@ -1,11 +1,12 @@
+import { Box } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import CardContent from '@mui/material/CardContent';
 
+import Tags from '../Tags/Tags';
 import formatDate from '../../helpers/formatDate';
 import { PostInterface } from '../../types/types';
-import Tags from '../Tags/Tags';
 
 import { 
   postMedia, 
@@ -15,7 +16,6 @@ import {
   metaStyle,
   dateStyle
 } from './styles';
-import { Box } from '@mui/material';
 
 const PostCard = (
   {

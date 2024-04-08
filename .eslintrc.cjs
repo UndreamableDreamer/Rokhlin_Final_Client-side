@@ -14,6 +14,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'no-useless-catch': 'off',
     'react-hooks/exhaustive-deps': 'off',
     'react-refresh/only-export-components': [ 'warn', { allowConstantExport: true }, ],
     'semi': 'off',

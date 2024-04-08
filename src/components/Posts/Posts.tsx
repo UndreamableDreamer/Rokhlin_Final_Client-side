@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+
 import PostCard from '../PostCard/PostCard';
 
 import { PostsProps } from './Posts.props';

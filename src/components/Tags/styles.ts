@@ -1,4 +1,4 @@
-export const tagsStyle = {
+export const tagsArrayStyles = {
   margin: '5px',
   gridArea: 'tags',
   alignSelf: 'center',
@@ -6,8 +6,8 @@ export const tagsStyle = {
   opacity: '90%',
 };
 
-export const tagStyle = {
+export const eachTagStyles = {
   display: 'inline',
   fontSize: '13px',
-  margin: '5px 0px 0px 5px'
+  margin: '5px 0 0 5px'
 };

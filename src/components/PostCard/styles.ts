@@ -31,7 +31,7 @@ export const postWrapper = {
   height: 'fit-content',
   display: 'inline-block',
   border: 'black solid 2px',
-  margin: '0px 10px 20px 10px',
+  margin: '0 10px 20px 10px',
   background: 'rgb(239, 222, 214)',
 };
 

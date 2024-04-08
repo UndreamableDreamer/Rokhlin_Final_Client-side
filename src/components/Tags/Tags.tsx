@@ -1,17 +1,17 @@
 import { Box, Typography } from '@mui/material';
 
 import { TagsProps } from './tags.props';
-import { tagStyle, tagsStyle } from './styles';
+import { eachTagStyles, tagsArrayStyles } from './styles';
 
 const Tags = ({ tags }: TagsProps) => {
   return (
-    <Box className='meta__tags tags' sx={tagsStyle}>Теги:
+    <Box className='meta__tags tags' sx={tagsArrayStyles}>Теги:
       {tags.map(tag => (
         <Typography
           variant='body2'
           className='tags__element' 
           key={tag.id}
-          sx={tagStyle}
+          sx={eachTagStyles}
         >
           #{tag.name}
         </Typography>
