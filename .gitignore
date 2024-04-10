@@ -11,6 +11,12 @@ node_modules
 dist
 dist-ssr
 *.local
+.history
+.vscode
+.deprecated.tsx
+
+#Confidentional
+.env
 
 # Editor directories and files
 .vscode/*
