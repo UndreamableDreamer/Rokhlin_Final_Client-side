@@ -1,10 +1,11 @@
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+
+import NestedModal from '../ModalAuth/ModalAuth';
 
 import { grow, navWrapper, navTitle, navIcon } from './styles';
 
@@ -27,7 +28,7 @@ export const NavBar = () => {
             sx={[grow, navTitle]}>
             News
           </Typography>
-          <Button className='toolbar__login' color="inherit">Login</Button>
+          <NestedModal />
         </Toolbar>
       </AppBar>
     </Box>
