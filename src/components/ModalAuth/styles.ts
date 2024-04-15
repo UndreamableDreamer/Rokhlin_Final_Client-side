@@ -5,7 +5,7 @@ export const modalHeaderStyles = {
   gridArea: 'header'
 };
   
-export const modalFieldsStyles = {
+export const modalInputsStyles = {
   '& .MuiFormLabel-root': {
     color: 'rgba(255, 255, 255, 0.6)'
   },
@@ -49,36 +49,36 @@ export const modalBoxStyles = {
   pb: 3,
 };
   
-export const submitButton = {
+export const submitButtonStyles = {
   placeSelf: 'start',
-  margin: '15px 0 0 0',
+  margin: '20px 0 0 0',
   padding: 0,
   gridArea: 'submit'
 };
   
-export const loginStyles = [
-  modalFieldsStyles,
-  { gridArea: 'login' },
-];
-  
 export const passwordStyles = [
-  modalFieldsStyles,
+  modalInputsStyles,
   { gridArea: 'password' },
 ];
 
-export const emailStyles = [
-  modalFieldsStyles,
-  {gridArea: 'email'},
+export const loginStyles = [
+  modalInputsStyles,
+  { gridArea: 'login' },
 ];
 
-export const register = {
+export const emailStyles = [
+  modalInputsStyles,
+  { gridArea: 'email' },
+];
+
+export const registerTextStyles = {
   gridArea: 'register',
   color: 'white',
   placeSelf: 'center',
   textAlign: 'center'
 };
   
-export const registerLink = {
+export const registerLinkStyles = {
   cursor: 'pointer'
 };
 

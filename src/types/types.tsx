@@ -18,7 +18,7 @@ export interface PostInterface {
   tags: TagInterface[],
 }
 
-export interface StateInterface {
+export interface NewsStateInterface {
   posts: PostInterface[],
   isLoading: boolean,
   error: string | null,
@@ -30,7 +30,17 @@ export interface PostActionInterface {
   error?: string,
 }
 
+export interface ModalActionInterface {
+  type: string,
+  payload: boolean,
+}
+
 export interface ErrorMessageInterface {
   error: string | null,
   severity: 'info'| 'error',
+}
+
+export interface ModalStateInterface {
+  isOpen: boolean;
+  isShowEmailField: boolean;
 }

@@ -3,17 +3,15 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import { TextField, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 import {
-  emailStyles,
-  loginStyles, 
   modalBoxStyles, 
   modalHeaderStyles, 
-  passwordStyles, 
-  register, 
-  registerLink, 
-  submitButton } from './styles';
+  registerTextStyles, 
+  registerLinkStyles, 
+} from './styles';
+import AuthForm from '../AuthForm/AuthForm';
 
 export default function NestedModal() {
   const [open, setOpen] = React.useState(false);
@@ -37,13 +35,13 @@ export default function NestedModal() {
         className='toolbar__login' 
         color="inherit"
       >
-        LogIn
+        Login
       </Button>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby='parent-modal-title'
-        className='toolbar__modal--login modal'
+        className='toolbar__modal modal'
       >
         <Box className='modal__box box' sx={modalBoxStyles}>
           <Typography 
@@ -53,45 +51,15 @@ export default function NestedModal() {
           >
             Welcome!
           </Typography>
-          <TextField
-            className='box__login-field' 
-            label='Login' 
-            variant='standard' 
-            sx={loginStyles}
-          >
-          </TextField>
-          {showAdditionalField && (
-            <TextField
-              className='box__email-field' 
-              label='Email' 
-              variant='standard' 
-              sx={emailStyles}
-            />
-          )}
-          <TextField 
-            className='box__password-field' 
-            label='Password' 
-            type='password'
-            variant='standard'
-            sx={passwordStyles}
-          >
-          </TextField>
-          <Button 
-            className='box__button-submit' 
-            color="primary"
-            onClick={handleClose}
-            sx={submitButton}
-          >
-            Submit
-          </Button>
+          <AuthForm />
           {!showAdditionalField && (
             <Typography 
-              sx={register}
+              sx={registerTextStyles}
             >
             Doesn't have an account? <br></br>Register&nbsp;
               <Link 
                 onClick={handleNowClick} 
-                sx={registerLink}
+                sx={registerLinkStyles}
               >
               now
               </Link>
