@@ -13,9 +13,8 @@ const AuthForm = () => {
   const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
     const formData = new FormData(event.currentTarget);
     const formJson = Object.fromEntries(formData);
-    console.log('--> onSubmit', formJson);
-    dispatch(nullifyModal());
     dispatch(authRequest(formJson));
+    dispatch(nullifyModal());
   };
   const modalType = useAppSelector((store) => store.modal.modalType);
 

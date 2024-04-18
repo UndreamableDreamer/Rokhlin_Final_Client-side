@@ -9,7 +9,6 @@ import { authReject, authSuccess } from '../../actions/auth';
 import { AuthAction } from '../../../types/action-interfaces';
 
 function* authSaga({payload}: AuthAction) {
-  console.log('were here');
   try {
     const requestType: string = yield select((store) => store.modal.modalType);
     const user: BackEndUserData = yield call(authenticateUser, payload, requestType);

@@ -14,7 +14,6 @@ export const authReducer = (
 ): AuthState => {
   switch (action.type) {
   case AUTH_PENDING:
-    console.log(action);
     return {
       ...state,
       isLoading: true,
