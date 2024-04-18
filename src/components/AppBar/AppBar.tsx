@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 
-import NestedModal from '../ModalAuth/ModalAuth';
+import ModalAuth from '../ModalAuth/ModalAuth';
 
 import { grow, navWrapper, navTitle, navIcon } from './styles';
 
@@ -28,7 +28,7 @@ export const NavBar = () => {
             sx={[grow, navTitle]}>
             News
           </Typography>
-          <NestedModal />
+          <ModalAuth />
         </Toolbar>
       </AppBar>
     </Box>

@@ -29,14 +29,9 @@ export const modalBoxStyles = {
   position: 'absolute',
   display: 'grid',
   gridTemplate: `
-    "header header header" auto
-    "login . register" auto
-    "email . register" auto
-    "password . register" auto
-    "submit . register" auto
+    "header header close" auto
+    "auth . register" auto
     / auto auto auto `,
-  gridAutoColumns: 'fit-content(300px), auto',
-  gap: '10px',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
@@ -55,7 +50,15 @@ export const submitButtonStyles = {
   padding: 0,
   gridArea: 'submit'
 };
-  
+
+export const closeButtonStyles = {
+  position: 'absolute',
+  width: '50px',
+  height: '50px',
+  top: '5px',
+  right: '15px',
+};
+
 export const passwordStyles = [
   modalInputsStyles,
   { gridArea: 'password' },

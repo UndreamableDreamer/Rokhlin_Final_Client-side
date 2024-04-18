@@ -1,28 +1,35 @@
-import { ModalActionInterface, ModalStateInterface } from '../../../types/types';
-import { SET_MODAL_OPEN, SET_SHOW_ADDITIONAL_FIELD } from '../../actionTypes';
+import { ModalState } from '../../../types/state-interfaces';
+import { ModalAction } from '../../../types/action-interfaces';
+import { NULLIFY_MODAL, SET_MODAL_REGISTER, SET_MODAL_STATE } from '../../actionTypes';
 
-export const initialModalState: ModalStateInterface = {
+export const initialModalState: ModalState = {
   isOpen: false,
-  isShowEmailField: false,
+  modalType: 'login',
 };
 
 export const modalReducer = (
-  state: ModalStateInterface = initialModalState, 
-  action: ModalActionInterface
-): ModalStateInterface => {
+  state: ModalState = initialModalState, 
+  action: ModalAction
+): ModalState => {
   switch (action.type) {
-  case SET_MODAL_OPEN:
+  case SET_MODAL_STATE:
     return {
       ...state,
-      isOpen: !state.isOpen,
+      isOpen: action.payload ?? false,
     };
-  case SET_SHOW_ADDITIONAL_FIELD:
+  case SET_MODAL_REGISTER:
     return {
       ...state,
-      isShowEmailField: !state.isShowEmailField
+      modalType: 'register',
+    };
+  case NULLIFY_MODAL: 
+    return {
+      ...state,
+      isOpen: false,
+      modalType: 'login',
     };
   default:
-    return initialModalState;
+    return state;
   }
 };
 

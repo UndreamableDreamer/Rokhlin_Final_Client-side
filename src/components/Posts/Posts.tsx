@@ -2,8 +2,8 @@ import { Box } from '@mui/material';
 
 import PostCard from '../PostCard/PostCard';
 
-import { PostsProps } from './Posts.props';
 import { news } from './styles';
+import { PostsProps } from './posts.props';
 
 const Posts = ({ posts }: PostsProps) => {
   return (

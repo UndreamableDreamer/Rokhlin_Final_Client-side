@@ -15,14 +15,28 @@ const modalInputs = {
     color: 'white',
   },
   borderBottom: '1px solid rgba(255, 255, 255, 0.5)',
-  marginLeft: '10px',
+  margin: '5px 0px 0px 10px'
+};
+
+export const authWrapper = {
+  gridArea: 'auth',
+  display: 'grid',
+  gridTemplate: `
+    "login" auto
+    "email" auto
+    "password" auto
+    "submit" auto
+    / auto `,
 };
 
 export const submitButton = {
   placeSelf: 'start',
   margin: '20px 0 0 0',
   padding: 0,
-  gridArea: 'submit'
+  gridArea: 'submit',
+  '&:hover': {
+    backgroundColor: 'rgba(179, 216, 218, 0.24)'
+  },
 };
   
 export const passwordStyles = [

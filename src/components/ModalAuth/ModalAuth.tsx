@@ -1,32 +1,36 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import { Typography } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { IconButton, Typography } from '@mui/material';
+
+import AuthForm from '../AuthForm/AuthForm';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { nullifyModal, setModalState, setModalToRegister } from '../../redux/actions/modal';
 
 import {
   modalBoxStyles, 
   modalHeaderStyles, 
   registerTextStyles, 
-  registerLinkStyles, 
+  registerLinkStyles,
+  closeButtonStyles, 
 } from './styles';
-import AuthForm from '../AuthForm/AuthForm';
 
-export default function NestedModal() {
-  const [open, setOpen] = React.useState(false);
-  const [showAdditionalField, setShowAdditionalField] = React.useState(false);
+export default function ModalAuth() {
+  const dispatch = useAppDispatch();
   const handleOpen = () => {
-    setOpen(true);
+    dispatch(setModalState(true));
   };
   const handleClose = () => {
-    setOpen(false);
-    setShowAdditionalField(false);
+    dispatch(nullifyModal());
+  };
+  const handleNowClick = () => {
+    dispatch(setModalToRegister());
   };
 
-  const handleNowClick = () => {
-    setShowAdditionalField(true);
-  };
+  const open = useAppSelector((store) => store.modal.isOpen);
+  const modalType = useAppSelector((store) => store.modal.modalType);
 
   return (
     <>
@@ -44,6 +48,14 @@ export default function NestedModal() {
         className='toolbar__modal modal'
       >
         <Box className='modal__box box' sx={modalBoxStyles}>
+          <IconButton
+            area-label='delete'
+            color='error'
+            sx={closeButtonStyles}
+            onClick={handleClose}
+          >
+            <CloseIcon />
+          </IconButton>
           <Typography 
             className='box__title' 
             id='parent-modal-title' 
@@ -52,12 +64,14 @@ export default function NestedModal() {
             Welcome!
           </Typography>
           <AuthForm />
-          {!showAdditionalField && (
+          {modalType === 'login' && (
             <Typography 
+              className='box__register-text'
               sx={registerTextStyles}
             >
             Doesn't have an account? <br></br>Register&nbsp;
               <Link 
+                className='box__register-link'
                 onClick={handleNowClick} 
                 sx={registerLinkStyles}
               >

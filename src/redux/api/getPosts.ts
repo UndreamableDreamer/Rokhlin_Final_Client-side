@@ -1,8 +1,8 @@
-import { PostInterface } from '../../types/types';
+import { Post } from '../../types/posts-interfaces';
 
 import api from './api';
 
 export const getPosts = async () => {
-  const { data } = await api.get<PostInterface[]>('posts');
+  const { data } = await api.get<Post[]>('posts');
   return data;
 };

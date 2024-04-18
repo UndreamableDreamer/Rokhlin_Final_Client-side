@@ -1,5 +1,5 @@
-import { TagInterface } from '../../types/types';
+import { Tag } from '../../types/posts-interfaces';
 
 export interface TagsProps {
-  tags: TagInterface[];
+  tags: Tag[];
 }

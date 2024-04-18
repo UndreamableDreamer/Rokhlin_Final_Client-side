@@ -1,49 +1,67 @@
-import { TextField, Button } from '@mui/material';
-import { loginStyles, emailStyles, passwordStyles, submitButton } from './styles';
-import React from 'react';
+import { SyntheticEvent} from 'react';
+import { TextField, Button, Box } from '@mui/material';
+
+import { nullifyModal } from '../../redux/actions/modal';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+
+import { loginStyles, emailStyles, passwordStyles, submitButton, authWrapper } from './styles';
+import { authRequest } from '../../redux/actions/auth';
 
 const AuthForm = () => {
-  const [open, setOpen] = React.useState(false);
-  const [showAdditionalField, setShowAdditionalField] = React.useState(false);
-  const handleClose = () => {
-    setOpen(false);
-    setShowAdditionalField(false);
+  const dispatch = useAppDispatch();
+  
+  const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
+    const formData = new FormData(event.currentTarget);
+    const formJson = Object.fromEntries(formData);
+    console.log('--> onSubmit', formJson);
+    dispatch(nullifyModal());
+    dispatch(authRequest(formJson));
   };
+  const modalType = useAppSelector((store) => store.modal.modalType);
+
   return (
-    <>
-      <TextField
-        className='box__login-field' 
-        label='Login' 
-        variant='standard' 
-        sx={loginStyles}
-      >
-      </TextField>
-      {showAdditionalField && (
+    <Box sx={authWrapper}>
+      <form onSubmit={handleSubmit}>
         <TextField
-          className='box__email-field' 
-          label='Email' 
+          required
+          name='login'
+          label='Login' 
+          sx={loginStyles}
           variant='standard' 
-          sx={emailStyles}
+          className='box__login-field' 
         />
-      )}
-      <TextField 
-        className='box__password-field' 
-        label='Password' 
-        type='password'
-        variant='standard'
-        sx={passwordStyles}
-      >
-      </TextField>
-      <Button 
-        className='box__button-submit' 
-        color="primary"
-        onClick={handleClose}
-        sx={submitButton}
-      >
-        Submit
-      </Button>
-    </>
+        {modalType === 'register' && (
+          <TextField
+            required
+            name='email'
+            type='email'
+            label='Email' 
+            sx={emailStyles}
+            variant='standard' 
+            className='box__email-field' 
+          />
+        )}
+        <TextField 
+          required
+          name='password'
+          type='password'
+          label='Password' 
+          variant='standard'
+          className='box__password-field' 
+          sx={passwordStyles}
+        />
+        <Button 
+          className='box__button-submit'
+          color='primary'
+          sx={submitButton}
+          type='submit'
+        >
+          Submit
+        </Button>
+      </form>
+    </Box>
   );
 };
 
 export default AuthForm;
+

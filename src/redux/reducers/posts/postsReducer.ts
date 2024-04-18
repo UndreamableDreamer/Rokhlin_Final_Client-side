@@ -1,17 +1,18 @@
-import { POSTS_REQUEST, POSTS_REQUEST_SUCCESS, POSTS_REQUEST_ERROR } from '../../actionTypes';
-import { PostActionInterface, NewsStateInterface } from '../../../types/types';
 import { ERROR_TEXT } from '../../constants';
+import { NewsState } from '../../../types/state-interfaces';
+import { PostAction } from '../../../types/action-interfaces';
+import { POSTS_REQUEST, POSTS_REQUEST_SUCCESS, POSTS_REQUEST_ERROR } from '../../actionTypes';
 
-const initialState: NewsStateInterface = {
+const initialState: NewsState = {
   posts: [],
   isLoading: false,
   error: null,
 };
 
 export const postsReducer = (
-  state: NewsStateInterface = initialState, 
-  action: PostActionInterface 
-): NewsStateInterface => {
+  state: NewsState = initialState, 
+  action: PostAction 
+): NewsState => {
   switch (action.type) {
   case POSTS_REQUEST:
     return {
@@ -34,7 +35,7 @@ export const postsReducer = (
       error: action.error ?? ERROR_TEXT,
     };
   default:
-    return initialState;
+    return state;
   }
 };
 
