@@ -1,7 +1,7 @@
 import { ERROR_TEXT } from '../../constants';
 import { NewsState } from '../../../types/state-interfaces';
 import { PostAction } from '../../../types/action-interfaces';
-import { POSTS_REQUEST, POSTS_REQUEST_SUCCESS, POSTS_REQUEST_ERROR } from '../../actionTypes';
+import { POSTS_REQUEST, POSTS_SUCCESS, POSTS_ERROR } from '../../actionTypes';
 
 const initialState: NewsState = {
   posts: [],
@@ -21,14 +21,14 @@ export const postsReducer = (
       isLoading: true,
       error: null,
     };
-  case POSTS_REQUEST_SUCCESS:
+  case POSTS_SUCCESS:
     return {
       ...state,
       isLoading: false,
       posts: action.payload ?? [],
       error: null,
     };    
-  case POSTS_REQUEST_ERROR:
+  case POSTS_ERROR:
     return {
       ...state,
       isLoading: false,

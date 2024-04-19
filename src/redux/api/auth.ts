@@ -8,5 +8,5 @@ import api from './api';
 export const authenticateUser = async (payload: FrontEndUserData, type: ModalType) => {
   const { data } = await api.post<BackEndAuthResponse>(`auth/${type}`, payload);
   localStorage.setItem('token', data.token);
-  return data.user;
+  return data.payload;
 };

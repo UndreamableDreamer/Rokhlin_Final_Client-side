@@ -1,15 +1,15 @@
 import { ModalAction } from '../../types/action-interfaces';
-import { NULLIFY_MODAL, SET_MODAL_REGISTER, SET_MODAL_STATE } from '../actionTypes';
+import { MODAL_NULLIFY, MODAL_SET_TYPE, MODAL_SET_STATE } from '../actionTypes';
 
 export const setModalState = (isOpen: boolean): ModalAction => ({
-  type: SET_MODAL_STATE,
+  type: MODAL_SET_STATE,
   payload: isOpen
 });
 
 export const setModalToRegister = (): ModalAction => ({
-  type: SET_MODAL_REGISTER,
+  type: MODAL_SET_TYPE,
 });
 
 export const nullifyModal = (): ModalAction => ({
-  type: NULLIFY_MODAL,
+  type: MODAL_NULLIFY,
 });

@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
 import Posts from '../../components/Posts/Posts';
+import Status from '../../components/Status/Status';
 import Loading from '../../components/Loading/Loading';
-import { Status } from '../../components/Status/Status';
 import { getAllPosts } from '../../redux/actions/posts';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 

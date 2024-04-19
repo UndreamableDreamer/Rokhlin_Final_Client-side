@@ -1,8 +1,8 @@
 import { AxiosError } from 'axios';
 import { takeLatest, put, call } from 'redux-saga/effects';
 
+import getPosts from '../../api/getPosts';
 import { ERROR_TEXT } from '../../constants';
-import { getPosts } from '../../api/getPosts';
 import { POSTS_REQUEST } from '../../actionTypes';
 import { Post } from '../../../types/posts-interfaces';
 import { requestSuccess, requestError } from '../../actions/posts';

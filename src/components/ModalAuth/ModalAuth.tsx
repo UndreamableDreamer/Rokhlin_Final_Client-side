@@ -1,27 +1,24 @@
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import { IconButton, Typography } from '@mui/material';
 
 import AuthForm from '../AuthForm/AuthForm';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { nullifyModal, setModalState, setModalToRegister } from '../../redux/actions/modal';
+import { nullifyModal, setModalToRegister } from '../../redux/actions/modal';
 
 import {
-  modalBoxStyles, 
   modalHeaderStyles, 
   registerTextStyles, 
   registerLinkStyles,
-  closeButtonStyles, 
+  closeButtonStyles,
+  registerModalStyle,
+  loginModalStyle, 
 } from './styles';
 
-export default function ModalAuth() {
+const ModalAuth = () => {
   const dispatch = useAppDispatch();
-  const handleOpen = () => {
-    dispatch(setModalState(true));
-  };
   const handleClose = () => {
     dispatch(nullifyModal());
   };
@@ -31,51 +28,44 @@ export default function ModalAuth() {
 
   const open = useAppSelector((store) => store.modal.isOpen);
   const modalType = useAppSelector((store) => store.modal.modalType);
+  const gridStyles = modalType === 'register' ? registerModalStyle : loginModalStyle;
 
   return (
     <>
-      <Button 
-        onClick={handleOpen} 
-        className='toolbar__login' 
-        color="inherit"
-      >
-        Login
-      </Button>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby='parent-modal-title'
         className='toolbar__modal modal'
       >
-        <Box className='modal__box box' sx={modalBoxStyles}>
+        <Box className='modal__box box' sx={gridStyles}>
           <IconButton
-            area-label='delete'
             color='error'
             sx={closeButtonStyles}
             onClick={handleClose}
           >
             <CloseIcon />
           </IconButton>
-          <Typography 
-            className='box__title' 
-            id='parent-modal-title' 
+          <Typography
+            className='box__title'
+            id='parent-modal-title'
             sx={modalHeaderStyles}
           >
             Welcome!
           </Typography>
           <AuthForm />
           {modalType === 'login' && (
-            <Typography 
+            <Typography
               className='box__register-text'
               sx={registerTextStyles}
             >
-            Doesn't have an account? <br></br>Register&nbsp;
-              <Link 
+                Doesn't have an account? <br></br>Register&nbsp;
+              <Link
                 className='box__register-link'
-                onClick={handleNowClick} 
+                onClick={handleNowClick}
                 sx={registerLinkStyles}
               >
-              now
+                now
               </Link>
             </Typography>
           )}
@@ -83,4 +73,6 @@ export default function ModalAuth() {
       </Modal>
     </>
   );
-}
+};
+
+export default ModalAuth;

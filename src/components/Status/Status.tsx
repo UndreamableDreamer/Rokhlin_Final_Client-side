@@ -2,7 +2,7 @@ import { Alert, AlertTitle } from '@mui/material';
 
 import { ErrorMessage } from '../../types/system-interfaces';
 
-export const Status = ({ error, severity }: ErrorMessage) => {
+const Status = ({ error, severity }: ErrorMessage) => {
   const message = severity === 'info' ? 'Info' : 'Error';
   return (
     <Alert className='alert-box' severity={severity}>
@@ -11,3 +11,5 @@ export const Status = ({ error, severity }: ErrorMessage) => {
     </Alert>
   );
 };
+
+export default Status;

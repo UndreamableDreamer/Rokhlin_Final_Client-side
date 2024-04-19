@@ -3,12 +3,12 @@ import { FrontEndUserData, BackEndUserData } from './user-interfaces';
 
 export interface PostAction {
   type: string,
-  payload?: Post[]
+  payload?: Post[],
   error?: string,
 }
 
 export interface ModalAction {
-  type: string;
+  type: string,
   payload?: boolean 
 }
 

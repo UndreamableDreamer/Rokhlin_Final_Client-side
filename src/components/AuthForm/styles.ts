@@ -15,23 +15,23 @@ const modalInputs = {
     color: 'white',
   },
   borderBottom: '1px solid rgba(255, 255, 255, 0.5)',
-  margin: '5px 0px 0px 10px'
 };
 
 export const authWrapper = {
   gridArea: 'auth',
+  rowGap: '7px',
   display: 'grid',
   gridTemplate: `
-    "login" auto
-    "email" auto
-    "password" auto
-    "submit" auto
-    / auto `,
+    "login"
+    "email"
+    "password"
+    "helper"
+    "submit" `,
 };
 
 export const submitButton = {
   placeSelf: 'start',
-  margin: '20px 0 0 0',
+  marginTop: '5px',
   padding: 0,
   gridArea: 'submit',
   '&:hover': {
@@ -53,3 +53,10 @@ export const emailStyles = [
   modalInputs,
   { gridArea: 'email' },
 ];
+
+export const helperText = {
+  marginTop: '10px',
+  fontSize: '12px',
+  color: 'red',
+  gridArea: 'helper'
+};

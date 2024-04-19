@@ -1,6 +1,6 @@
 interface Author {
   id: number,
-  login: string,
+  login: string
 }
 
 export interface Post {
@@ -10,10 +10,10 @@ export interface Post {
   imageUrl?: string,
   updatedAt: string,
   user: Author,
-  tags: Tag[],
+  tags: Tag[]
 }
 
 export interface Tag {
   id: number,
-  name: string,
+  name: string
 }
