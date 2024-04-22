@@ -7,6 +7,7 @@ export const MODAL_SET_TYPE = 'MODAL_SET_TYPE';
 export const MODAL_SET_STATE = 'MODAL_SET_STATE';
 
 export const AUTH_ERROR = 'AUTH_ERROR';
+export const AUTH_WHOAMI = 'AUTH_WHOAMI';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import Posts from '../../components/Posts/Posts';
 import Status from '../../components/Status/Status';
+import { authWhoAmI } from '../../redux/actions/auth';
 import Loading from '../../components/Loading/Loading';
 import { getAllPosts } from '../../redux/actions/posts';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -13,6 +14,7 @@ const MainPage = () => {
   const errorMessage = useAppSelector((store)=> store.posts.error);
 
   useEffect(()=>{
+    dispatch(authWhoAmI());
     dispatch(getAllPosts());
   },[]);
 

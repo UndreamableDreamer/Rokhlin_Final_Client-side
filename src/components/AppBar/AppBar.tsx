@@ -15,7 +15,7 @@ import { grow, navWrapper, navTitle, navIcon } from './styles';
 
 const NavBar = () => {
   const dispatch = useAppDispatch();
-  
+
   const openModal = () => {
     dispatch(setModalState(true));
     dispatch(authErrorNullify());

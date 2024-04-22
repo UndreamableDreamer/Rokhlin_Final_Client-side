@@ -22,7 +22,7 @@ const AuthForm = () => {
     const formData = new FormData(event.currentTarget);
     const formJson: FrontEndUserData = Object.fromEntries(formData);
     dispatch(authRequest(formJson));
-    if (error) dispatch(nullifyModal());
+    if (!error) dispatch(nullifyModal());
   };
 
   const modalType = useAppSelector((store) => store.modal.modalType);

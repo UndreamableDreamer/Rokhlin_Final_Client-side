@@ -19,6 +19,7 @@ import {
 
 const ModalAuth = () => {
   const dispatch = useAppDispatch();
+  
   const handleClose = () => {
     dispatch(nullifyModal());
   };

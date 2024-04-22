@@ -12,7 +12,7 @@ const AuthorizedUI = () => {
   const handleLogout = () => {
     dispatch(authLogout());
   };
-
+  
   const avatarUrl = useAppSelector((store) => store.auth.user?.avatarUrl);
 
   return (
@@ -24,27 +24,22 @@ const AuthorizedUI = () => {
       >
         Logout
       </Button>
-      {!avatarUrl &&
       <IconButton
-        className='toolbar__avatar-placeholder placeholder'
+        className='toolbar__avatar-button button'
         sx={avatarPlaceholder}
         color='inherit'
       >
-        <AccessibleForward 
-          className='placeholder__icon'
-        />
-      </IconButton>
-      }
-      {avatarUrl &&
-        <IconButton
-          className='toolbar__avatar-button button'
-        >
+        {(!avatarUrl &&
+          <AccessibleForward 
+            className='placeholder__icon'
+          />)
+          ||           
           <Avatar
             className='button__image' 
             src={avatarUrl ? avatarUrl: import.meta.env.VITE_FALLBACK_IMAGE}
           /> 
-        </IconButton>
-      }
+        }
+      </IconButton>
     </>
   );
 };

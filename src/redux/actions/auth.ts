@@ -5,7 +5,8 @@ import {
   AUTH_ERROR_NULLIFY, 
   AUTH_LOGOUT, 
   AUTH_REQUEST, 
-  AUTH_SUCCESS } from '../actionTypes';
+  AUTH_SUCCESS, 
+  AUTH_WHOAMI } from '../actionTypes';
 
 export const authRequest = (payload: FrontEndUserData): AuthAction => ({
   type: AUTH_REQUEST,
@@ -24,6 +25,10 @@ export const authReject = (error: string): AuthAction => ({
 
 export const authLogout = (): AuthAction => ({
   type: AUTH_LOGOUT
+});
+
+export const authWhoAmI = (): AuthAction => ({
+  type: AUTH_WHOAMI
 });
 
 export const authErrorNullify = (): AuthAction => ({
