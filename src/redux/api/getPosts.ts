@@ -1,4 +1,4 @@
-import { Post } from '../../types/posts-interfaces';
+import { Post } from '../../types/postsInterfaces';
 
 import api from './api';
 

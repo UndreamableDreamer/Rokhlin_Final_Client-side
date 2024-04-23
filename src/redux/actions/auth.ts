@@ -1,12 +1,13 @@
-import { AuthAction } from '../../types/action-interfaces';
-import { BackEndUserData, FrontEndUserData } from '../../types/user-interfaces';
+import { AuthAction } from '../../types/actionInterfaces';
+import { BackEndUserData, FrontEndUserData } from '../../types/userInterfaces';
 import { 
   AUTH_ERROR, 
   AUTH_ERROR_NULLIFY, 
   AUTH_LOGOUT, 
   AUTH_REQUEST, 
   AUTH_SUCCESS, 
-  AUTH_WHOAMI } from '../actionTypes';
+  AUTH_WHOAMI 
+} from '../actionTypes';
 
 export const authRequest = (payload: FrontEndUserData): AuthAction => ({
   type: AUTH_REQUEST,

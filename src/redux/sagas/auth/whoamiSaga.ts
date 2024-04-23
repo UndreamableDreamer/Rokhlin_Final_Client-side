@@ -5,7 +5,7 @@ import { whoami } from '../../api/whoami';
 import { ERROR_TEXT } from '../../constants';
 import { AUTH_WHOAMI } from '../../actionTypes';
 import { authReject, authSuccess } from '../../actions/auth';
-import { BackEndUserData } from '../../../types/user-interfaces';
+import { BackEndUserData } from '../../../types/userInterfaces';
 
 function* whoamiSaga() {
   try {

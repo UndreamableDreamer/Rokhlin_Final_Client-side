@@ -1,5 +1,5 @@
-import { ModalState } from '../../../types/state-interfaces';
-import { ModalAction } from '../../../types/action-interfaces';
+import { ModalState } from '../../../types/stateInterfaces';
+import { ModalAction } from '../../../types/actionInterfaces';
 import { MODAL_NULLIFY, MODAL_SET_TYPE, MODAL_SET_STATE } from '../../actionTypes';
 
 export const initialModalState: ModalState = {

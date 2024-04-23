@@ -1,5 +1,5 @@
-import { Post } from './posts-interfaces';
-import { FrontEndUserData, BackEndUserData } from './user-interfaces';
+import { Post } from './postsInterfaces';
+import { FrontEndUserData, BackEndUserData } from './userInterfaces';
 
 export interface PostAction {
   type: string,

@@ -1,4 +1,4 @@
-import { ModalAction } from '../../types/action-interfaces';
+import { ModalAction } from '../../types/actionInterfaces';
 import { MODAL_NULLIFY, MODAL_SET_TYPE, MODAL_SET_STATE } from '../actionTypes';
 
 export const setModalState = (isOpen: boolean): ModalAction => ({

@@ -1,10 +1,5 @@
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import { Box, AppBar, Toolbar, IconButton, Typography, Button } from '@mui/material';
 
 import AuthorizedUI from '../AuthorizedUI/AuthorizedUI';
 import { setModalState } from '../../redux/actions/modal';
@@ -21,7 +16,7 @@ const NavBar = () => {
     dispatch(authErrorNullify());
   };
 
-  const loggedIn = useAppSelector((store) => store.auth.authorized);
+  const isLoggedIn = useAppSelector((store) => store.auth.isAuthorized);
 
   return (
     <Box className='parent__navbar navbar' sx={grow}> 
@@ -41,7 +36,9 @@ const NavBar = () => {
             sx={[grow, navTitle]}>
             News
           </Typography>
-          {(loggedIn && <AuthorizedUI />) ||         
+          {isLoggedIn ? (
+            <AuthorizedUI />
+          ) : (
             <Button
               onClick={openModal}
               className='toolbar__login'
@@ -49,7 +46,7 @@ const NavBar = () => {
             >
               Login
             </Button>
-          }
+          )}
         </Toolbar>
       </AppBar>
     </Box>

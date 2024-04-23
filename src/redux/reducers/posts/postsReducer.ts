@@ -1,6 +1,6 @@
 import { ERROR_TEXT } from '../../constants';
-import { NewsState } from '../../../types/state-interfaces';
-import { PostAction } from '../../../types/action-interfaces';
+import { NewsState } from '../../../types/stateInterfaces';
+import { PostAction } from '../../../types/actionInterfaces';
 import { POSTS_REQUEST, POSTS_SUCCESS, POSTS_ERROR } from '../../actionTypes';
 
 const initialState: NewsState = {

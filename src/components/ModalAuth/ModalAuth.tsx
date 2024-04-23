@@ -1,8 +1,5 @@
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Modal from '@mui/material/Modal';
 import CloseIcon from '@mui/icons-material/Close';
-import { IconButton, Typography } from '@mui/material';
+import { Box, IconButton, Link, Modal, Typography } from '@mui/material';
 
 import AuthForm from '../AuthForm/AuthForm';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';

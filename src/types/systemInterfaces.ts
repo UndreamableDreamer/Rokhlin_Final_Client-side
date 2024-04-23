@@ -1,4 +1,4 @@
-import { BackEndUserData } from './user-interfaces';
+import { BackEndUserData } from './userInterfaces';
 
 export interface ErrorMessage {
   error: string | null,

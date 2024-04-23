@@ -1,66 +1,37 @@
-import { SyntheticEvent} from 'react';
-import { TextField, Button, Typography } from '@mui/material';
+import { SyntheticEvent, memo } from 'react';
+import { Button, Typography } from '@mui/material';
 
+import AuthInput from '../AuthInput/AuthInput';
 import { authRequest } from '../../redux/actions/auth';
 import { nullifyModal } from '../../redux/actions/modal';
-import { FrontEndUserData } from '../../types/user-interfaces';
+import { FrontEndUserData } from '../../types/userInterfaces';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
-import { 
-  loginStyles, 
-  emailStyles, 
-  passwordStyles, 
-  submitButton, 
-  authWrapper, 
-  helperText } from './styles';
+import { submitButton, authWrapper, helperText } from './styles';
 
-const AuthForm = () => {
+const AuthForm = memo(() => {
   const dispatch = useAppDispatch();
   
+  const modalType = useAppSelector((store) => store.modal.modalType);
+  const error = useAppSelector((store) => store.auth.error);
+  const isModalRegister = modalType === 'register' ? true : false;
+
   const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formJson: FrontEndUserData = Object.fromEntries(formData);
     dispatch(authRequest(formJson));
-    if (!error) dispatch(nullifyModal());
+    if (error === null) dispatch(nullifyModal());
   };
-
-  const modalType = useAppSelector((store) => store.modal.modalType);
-  const error = useAppSelector((store) => store.auth.error);
 
   return (
     <form
       className='box__auth-form form' 
       onSubmit={handleSubmit} style={authWrapper}
     >
-      <TextField
-        required
-        name='login'
-        label='Login' 
-        sx={loginStyles}
-        variant='standard' 
-        className='form__login-field' 
-      />
-      {modalType === 'register' && (
-        <TextField
-          required
-          name='email'
-          type='email'
-          label='Email' 
-          sx={emailStyles}
-          variant='standard' 
-          className='form__email-field' 
-        />
-      )}
-      <TextField 
-        required
-        name='password'
-        type='password'
-        label='Password' 
-        variant='standard'
-        className='form__password-field' 
-        sx={passwordStyles}
-      />
+      <AuthInput inputType={'login'} />
+      {isModalRegister && ( <AuthInput inputType={'email'} /> )}
+      <AuthInput inputType={'password'} />
       {error &&
         <Typography
           className='form__error-text'
@@ -78,6 +49,7 @@ const AuthForm = () => {
       </Button>
     </form>
   );
-};
+});
+
 
 export default AuthForm;

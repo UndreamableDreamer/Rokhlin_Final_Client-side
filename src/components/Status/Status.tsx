@@ -1,6 +1,6 @@
 import { Alert, AlertTitle } from '@mui/material';
 
-import { ErrorMessage } from '../../types/system-interfaces';
+import { ErrorMessage } from '../../types/systemInterfaces';
 
 const Status = ({ error, severity }: ErrorMessage) => {
   const message = severity === 'info' ? 'Info' : 'Error';

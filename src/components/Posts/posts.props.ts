@@ -1,4 +1,4 @@
-import { Post } from '../../types/posts-interfaces';
+import { Post } from '../../types/postsInterfaces';
 
 export interface PostsProps {
   posts: Post[];

@@ -1,6 +1,6 @@
 
-import { Post } from '../../types/posts-interfaces';
-import { PostAction } from '../../types/action-interfaces';
+import { Post } from '../../types/postsInterfaces';
+import { PostAction } from '../../types/actionInterfaces';
 import { POSTS_REQUEST, POSTS_ERROR, POSTS_SUCCESS } from '../actionTypes';
 
 export const getAllPosts = (): PostAction => ({

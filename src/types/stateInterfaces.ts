@@ -1,6 +1,6 @@
-import { Post } from './posts-interfaces';
-import { ModalType } from './custom-types';
-import { BackEndUserData, FrontEndUserData } from './user-interfaces';
+import { Post } from './postsInterfaces';
+import { ModalType } from './customTypes';
+import { BackEndUserData, FrontEndUserData } from './userInterfaces';
 
 export interface NewsState {
   posts: Post[],
@@ -17,5 +17,5 @@ export interface AuthState {
   isLoading: boolean,
   user: FrontEndUserData | BackEndUserData | null,
   error: string | null,
-  authorized: boolean
+  isAuthorized: boolean
 }

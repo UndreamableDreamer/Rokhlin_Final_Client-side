@@ -1,5 +1,5 @@
 
-import { BackEndUserData } from '../../types/user-interfaces';
+import { BackEndUserData } from '../../types/userInterfaces';
 
 import api from './api';
 

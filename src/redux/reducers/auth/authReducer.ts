@@ -1,17 +1,18 @@
-import { AuthState } from '../../../types/state-interfaces';
-import { AuthAction } from '../../../types/action-interfaces';
+import { AuthState } from '../../../types/stateInterfaces';
+import { AuthAction } from '../../../types/actionInterfaces';
 import { 
   AUTH_ERROR, 
   AUTH_ERROR_NULLIFY, 
   AUTH_LOGOUT, 
   AUTH_REQUEST, 
-  AUTH_SUCCESS } from '../../actionTypes';
+  AUTH_SUCCESS 
+} from '../../actionTypes';
 
 export const initialAuthState: AuthState = {
   isLoading: false,
   user: null,
   error: null,
-  authorized: !!localStorage.getItem('token')
+  isAuthorized: Boolean(localStorage.getItem('accessToken'))
 };
 
 export const authReducer = (
@@ -29,7 +30,7 @@ export const authReducer = (
       ...state,
       isLoading: false,
       user: action.payload ?? null,
-      authorized: true
+      isAuthorized: true
     };
   case AUTH_ERROR: 
     return {
@@ -38,10 +39,10 @@ export const authReducer = (
       error: action.error ?? 'Unknown error',
     };
   case AUTH_LOGOUT:
-    localStorage.removeItem('token');
+    localStorage.removeItem('accessToken');
     return {
       ...state,
-      authorized: false
+      isAuthorized: false
     };
   case AUTH_ERROR_NULLIFY:
     return {

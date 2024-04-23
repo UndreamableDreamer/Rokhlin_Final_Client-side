@@ -5,8 +5,8 @@ import { ERROR_TEXT } from '../../constants';
 import { AUTH_REQUEST } from '../../actionTypes';
 import { authenticateUser } from '../../api/auth';
 import { authReject, authSuccess } from '../../actions/auth';
-import { AuthAction } from '../../../types/action-interfaces';
-import { BackEndUserData } from '../../../types/user-interfaces';
+import { AuthAction } from '../../../types/actionInterfaces';
+import { BackEndUserData } from '../../../types/userInterfaces';
 
 function* authSaga({payload}: AuthAction) {
   try {

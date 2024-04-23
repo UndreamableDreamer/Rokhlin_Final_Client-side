@@ -1,12 +1,12 @@
 
-import { ModalType } from '../../types/custom-types';
-import { FrontEndUserData } from '../../types/user-interfaces';
-import { BackEndAuthResponse } from '../../types/system-interfaces';
+import { ModalType } from '../../types/customTypes';
+import { FrontEndUserData } from '../../types/userInterfaces';
+import { BackEndAuthResponse } from '../../types/systemInterfaces';
 
 import api from './api';
 
 export const authenticateUser = async (payload: FrontEndUserData, type: ModalType) => {
   const { data } = await api.post<BackEndAuthResponse>(`auth/${type}`, payload);
-  localStorage.setItem('token', data.token);
+  localStorage.setItem('accessToken', data.token);
   return data.payload;
 };
