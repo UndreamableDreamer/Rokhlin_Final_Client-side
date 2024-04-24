@@ -1,23 +1,22 @@
-// sagas.js
-import { takeLatest, put, call } from 'redux-saga/effects';
 import { AxiosError } from 'axios';
+import { takeLatest, put, call } from 'redux-saga/effects';
 
-import { requestError, requestSuccess } from '../../actions/action';
-import { PostInterface } from '../../../types/types';
-import { POSTS_REQUEST } from '../../actionTypes';
-import { getPosts } from '../../api/getPosts';
+import getPosts from '../../api/getPosts';
 import { ERROR_TEXT } from '../../constants';
+import { POSTS_REQUEST } from '../../actionTypes';
+import { Post } from '../../../types/postsInterfaces';
+import { requestPostsSuccess, requestPostsError } from '../../actions/posts';
 
-function* getAllPostsSaga() {
+function* getAllPostsWorker() {
   try {
-    const posts: PostInterface[] = yield call(getPosts);
-    yield put(requestSuccess(posts));
+    const posts: Post[] = yield call(getPosts);
+    yield put(requestPostsSuccess(posts));
   } catch (e: unknown) {
     const currentError = e instanceof AxiosError ? e.message : ERROR_TEXT;
-    yield put(requestError(currentError));
+    yield put(requestPostsError(currentError));
   }
 }
 
-export default function* watcherSaga() {
-  yield takeLatest(POSTS_REQUEST, getAllPostsSaga);
+export default function* watcherPostsSaga() {
+  yield takeLatest(POSTS_REQUEST, getAllPostsWorker);
 }

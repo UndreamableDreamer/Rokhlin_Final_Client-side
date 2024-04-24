@@ -1,18 +1,20 @@
 import { useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { Status } from '../../components/Status/Status';
-import { getAllPosts } from '../../redux/actions/action';
-import Loading from '../../components/Loading/Loading';
 import Posts from '../../components/Posts/Posts';
+import Status from '../../components/Status/Status';
+import { authRequestWhoAmI } from '../../redux/actions/auth';
+import Loading from '../../components/Loading/Loading';
+import { getAllPosts } from '../../redux/actions/posts';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 const MainPage = () => {
+  const dispatch = useAppDispatch();
   const posts = useAppSelector((store)=> store.posts.posts);
   const isLoading = useAppSelector((store)=> store.posts.isLoading);
   const errorMessage = useAppSelector((store)=> store.posts.error);
-  const dispatch = useAppDispatch();
 
   useEffect(()=>{
+    dispatch(authRequestWhoAmI());
     dispatch(getAllPosts());
   },[]);
 

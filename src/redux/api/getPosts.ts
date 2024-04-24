@@ -1,8 +1,10 @@
-import { PostInterface } from '../../types/types';
+import { Post } from '../../types/postsInterfaces';
 
 import api from './api';
 
-export const getPosts = async () => {
-  const { data } = await api.get<PostInterface[]>('posts');
+const getPosts = async (): Promise<Post[] | never> => {
+  const { data } = await api.get<Post[]>('posts');
   return data;
 };
+
+export default getPosts;

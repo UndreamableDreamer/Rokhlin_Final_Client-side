@@ -1,12 +1,8 @@
-import { Box } from '@mui/material';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import CardContent from '@mui/material/CardContent';
+import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 
 import Tags from '../Tags/Tags';
+import { Post } from '../../types/postsInterfaces';
 import formatDate from '../../helpers/formatDate';
-import { PostInterface } from '../../types/types';
 
 import { 
   postMedia, 
@@ -25,7 +21,7 @@ const PostCard = (
     updatedAt, 
     user, 
     tags 
-  }: PostInterface) => {
+  }: Post) => {
   return (
     <Card className='news__post post' sx={postWrapper}>
       <CardMedia className='post__media'

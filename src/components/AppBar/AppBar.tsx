@@ -1,14 +1,23 @@
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import { Box, AppBar, Toolbar, IconButton, Typography, Button } from '@mui/material';
+
+import AuthorizedUI from '../AuthorizedUI/AuthorizedUI';
+import { setModalState } from '../../redux/actions/modal';
+import { authErrorNullify } from '../../redux/actions/auth';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 import { grow, navWrapper, navTitle, navIcon } from './styles';
 
-export const NavBar = () => {
+const NavBar = () => {
+  const dispatch = useAppDispatch();
+
+  const openModal = () => {
+    dispatch(setModalState(true));
+    dispatch(authErrorNullify());
+  };
+
+  const isLoggedIn = useAppSelector((store) => store.auth.isAuthorized);
+
   return (
     <Box className='parent__navbar navbar' sx={grow}> 
       <AppBar className='navbar__wrapper wrapper' sx={navWrapper}>
@@ -27,10 +36,21 @@ export const NavBar = () => {
             sx={[grow, navTitle]}>
             News
           </Typography>
-          <Button className='toolbar__login' color="inherit">Login</Button>
+          {isLoggedIn ? (
+            <AuthorizedUI />
+          ) : (
+            <Button
+              onClick={openModal}
+              className='toolbar__login'
+              color='inherit'
+            >
+              Login
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
   );
 };
 
+export default NavBar;
