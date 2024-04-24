@@ -1,4 +1,4 @@
-import { BackEndUserData } from './userInterfaces';
+import { UserBackendProfile } from './userInterfaces';
 
 export interface ErrorMessage {
   error: string | null,
@@ -6,6 +6,6 @@ export interface ErrorMessage {
 }
 
 export interface BackEndAuthResponse {
-  payload: BackEndUserData,
+  payload: UserBackendProfile,
   token: string
 }

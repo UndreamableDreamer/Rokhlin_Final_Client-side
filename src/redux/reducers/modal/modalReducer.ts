@@ -1,6 +1,6 @@
 import { ModalState } from '../../../types/stateInterfaces';
 import { ModalAction } from '../../../types/actionInterfaces';
-import { MODAL_NULLIFY, MODAL_SET_TYPE, MODAL_SET_STATE } from '../../actionTypes';
+import { MODAL_NULLIFY, MODAL_SWITCH_TYPE, MODAL_SET_STATE } from '../../actionTypes';
 
 export const initialModalState: ModalState = {
   isOpen: false,
@@ -17,7 +17,7 @@ export const modalReducer = (
       ...state,
       isOpen: action.payload ?? false,
     };
-  case MODAL_SET_TYPE:
+  case MODAL_SWITCH_TYPE:
     return {
       ...state,
       modalType: 'register',
@@ -26,7 +26,7 @@ export const modalReducer = (
     return {
       ...state,
       isOpen: false,
-      modalType: 'login',
+      modalType: initialModalState.modalType,
     };
   default:
     return state;

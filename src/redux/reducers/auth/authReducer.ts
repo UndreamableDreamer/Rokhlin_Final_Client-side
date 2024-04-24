@@ -1,11 +1,11 @@
 import { AuthState } from '../../../types/stateInterfaces';
 import { AuthAction } from '../../../types/actionInterfaces';
 import { 
-  AUTH_ERROR, 
+  AUTH_REQUEST_ERROR, 
   AUTH_ERROR_NULLIFY, 
   AUTH_LOGOUT, 
   AUTH_REQUEST, 
-  AUTH_SUCCESS 
+  AUTH_REQUEST_SUCCESS 
 } from '../../actionTypes';
 
 export const initialAuthState: AuthState = {
@@ -25,18 +25,19 @@ export const authReducer = (
       ...state,
       isLoading: true,
     };
-  case AUTH_SUCCESS:
+  case AUTH_REQUEST_SUCCESS:
     return {
       ...state,
       isLoading: false,
-      user: action.payload ?? null,
+      user: action.payload?.user ?? null,
       isAuthorized: true
     };
-  case AUTH_ERROR: 
+  case AUTH_REQUEST_ERROR: 
+    console.log(action.payload?.error);
     return {
       ...state,
       isLoading: false, 
-      error: action.error ?? 'Unknown error',
+      error: action.payload?.error ?? 'Unknown error',
     };
   case AUTH_LOGOUT:
     localStorage.removeItem('accessToken');

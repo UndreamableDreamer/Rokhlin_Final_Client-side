@@ -2,9 +2,8 @@ import { SyntheticEvent, memo } from 'react';
 import { Button, Typography } from '@mui/material';
 
 import AuthInput from '../AuthInput/AuthInput';
-import { authRequest } from '../../redux/actions/auth';
-import { nullifyModal } from '../../redux/actions/modal';
-import { FrontEndUserData } from '../../types/userInterfaces';
+import { authSendRequest } from '../../redux/actions/auth';
+import { UserCredentials } from '../../types/userInterfaces';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 import { submitButton, authWrapper, helperText } from './styles';
@@ -19,9 +18,8 @@ const AuthForm = memo(() => {
   const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const formJson: FrontEndUserData = Object.fromEntries(formData);
-    dispatch(authRequest(formJson));
-    if (error === null) dispatch(nullifyModal());
+    const formJson: UserCredentials = Object.fromEntries(formData);
+    dispatch(authSendRequest(formJson));
   };
 
   return (

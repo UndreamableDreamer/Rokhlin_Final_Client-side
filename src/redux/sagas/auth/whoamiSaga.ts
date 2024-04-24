@@ -3,20 +3,20 @@ import { takeLatest, put, call } from 'redux-saga/effects';
 
 import { whoami } from '../../api/whoami';
 import { ERROR_TEXT } from '../../constants';
-import { AUTH_WHOAMI } from '../../actionTypes';
-import { authReject, authSuccess } from '../../actions/auth';
-import { BackEndUserData } from '../../../types/userInterfaces';
+import { AUTH_REQUEST_WHOAMI } from '../../actionTypes';
+import { UserBackendProfile } from '../../../types/userInterfaces';
+import { authRequestReject, authRequestSuccess } from '../../actions/auth';
 
-function* whoamiSaga() {
+function* whoamiUserWorker() {
   try {
-    const user: BackEndUserData = yield call(whoami);
-    yield put(authSuccess(user));
+    const user: UserBackendProfile = yield call(whoami);
+    yield put(authRequestSuccess(user));
   } catch (e: unknown) {
     const currentError = e instanceof AxiosError ? e.response?.data.message : ERROR_TEXT;
-    yield put(authReject(currentError));
+    yield put(authRequestReject(currentError));
   }
 }
 
 export default function* watcherWhoAmISaga() {
-  yield takeLatest(AUTH_WHOAMI, whoamiSaga);
+  yield takeLatest(AUTH_REQUEST_WHOAMI, whoamiUserWorker);
 }

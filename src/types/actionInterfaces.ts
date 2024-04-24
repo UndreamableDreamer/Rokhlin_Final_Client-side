@@ -1,10 +1,12 @@
 import { Post } from './postsInterfaces';
-import { FrontEndUserData, BackEndUserData } from './userInterfaces';
+import { UserCredentials, UserBackendProfile } from './userInterfaces';
 
 export interface PostAction {
   type: string,
-  payload?: Post[],
-  error?: string,
+  payload?: {
+    posts?: Post[], 
+    error?: string
+  }
 }
 
 export interface ModalAction {
@@ -14,6 +16,8 @@ export interface ModalAction {
 
 export interface AuthAction {
   type: string,
-  payload?: FrontEndUserData | BackEndUserData,
-  error?: string
+  payload?: {
+    user?: UserCredentials | UserBackendProfile,
+    error?: string
+  }
 }

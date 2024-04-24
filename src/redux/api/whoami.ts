@@ -1,9 +1,9 @@
 
-import { BackEndUserData } from '../../types/userInterfaces';
+import { UserBackendProfile } from '../../types/userInterfaces';
 
 import api from './api';
 
-export const whoami = async () => {
-  const user = await api.get<BackEndUserData>('auth/whoami');
+export const whoami = async (): Promise<UserBackendProfile | never> => {
+  const user = await api.get<UserBackendProfile>('auth/whoami');
   return user.data;
 };

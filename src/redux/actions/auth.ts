@@ -1,35 +1,35 @@
 import { AuthAction } from '../../types/actionInterfaces';
-import { BackEndUserData, FrontEndUserData } from '../../types/userInterfaces';
+import { UserBackendProfile, UserCredentials } from '../../types/userInterfaces';
 import { 
-  AUTH_ERROR, 
+  AUTH_REQUEST_ERROR, 
   AUTH_ERROR_NULLIFY, 
   AUTH_LOGOUT, 
   AUTH_REQUEST, 
-  AUTH_SUCCESS, 
-  AUTH_WHOAMI 
+  AUTH_REQUEST_SUCCESS, 
+  AUTH_REQUEST_WHOAMI 
 } from '../actionTypes';
 
-export const authRequest = (payload: FrontEndUserData): AuthAction => ({
+export const authSendRequest = (payload: UserCredentials): AuthAction => ({
   type: AUTH_REQUEST,
   payload
 });
 
-export const authSuccess = (payload: BackEndUserData): AuthAction => ({
-  type: AUTH_SUCCESS,
-  payload
+export const authRequestSuccess = (payload: UserBackendProfile): AuthAction => ({
+  type: AUTH_REQUEST_SUCCESS,
+  payload: { user: payload }
 });
 
-export const authReject = (error: string): AuthAction => ({
-  type: AUTH_ERROR,
-  error
+export const authRequestReject = (payload: string): AuthAction => ({
+  type: AUTH_REQUEST_ERROR,
+  payload: { error: payload }
 });
 
 export const authLogout = (): AuthAction => ({
   type: AUTH_LOGOUT
 });
 
-export const authWhoAmI = (): AuthAction => ({
-  type: AUTH_WHOAMI
+export const authRequestWhoAmI = (): AuthAction => ({
+  type: AUTH_REQUEST_WHOAMI
 });
 
 export const authErrorNullify = (): AuthAction => ({

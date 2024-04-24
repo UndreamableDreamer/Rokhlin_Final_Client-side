@@ -1,4 +1,4 @@
-export interface BackEndUserData {
+export interface UserBackendProfile {
   id: number,
   login: string,
   email: string,
@@ -7,6 +7,6 @@ export interface BackEndUserData {
   updatedAt: string
 }
 
-export interface FrontEndUserData {
+export interface UserCredentials {
   [k: string]: FormDataEntryValue
 }

@@ -3,7 +3,7 @@ import { Box, IconButton, Link, Modal, Typography } from '@mui/material';
 
 import AuthForm from '../AuthForm/AuthForm';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { nullifyModal, setModalToRegister } from '../../redux/actions/modal';
+import { nullifyModal, switchModalType } from '../../redux/actions/modal';
 
 import {
   modalHeaderStyles, 
@@ -21,7 +21,7 @@ const ModalAuth = () => {
     dispatch(nullifyModal());
   };
   const handleNowClick = () => {
-    dispatch(setModalToRegister());
+    dispatch(switchModalType());
   };
 
   const open = useAppSelector((store) => store.modal.isOpen);
