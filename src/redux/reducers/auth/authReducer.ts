@@ -32,8 +32,7 @@ export const authReducer = (
       user: action.payload?.user ?? null,
       isAuthorized: true
     };
-  case AUTH_REQUEST_ERROR: 
-    console.log(action.payload?.error);
+  case AUTH_REQUEST_ERROR:
     return {
       ...state,
       isLoading: false, 

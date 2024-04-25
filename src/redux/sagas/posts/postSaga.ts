@@ -12,7 +12,7 @@ function* getAllPostsWorker() {
     const posts: Post[] = yield call(getPosts);
     yield put(requestPostsSuccess(posts));
   } catch (e: unknown) {
-    const currentError = e instanceof AxiosError ? e.message : ERROR_TEXT;
+    const currentError = e instanceof AxiosError ? e.response?.data.message : ERROR_TEXT;
     yield put(requestPostsError(currentError));
   }
 }

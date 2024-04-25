@@ -5,8 +5,10 @@ import { authLogout } from '../../redux/actions/auth';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 import { avatarPlaceholder } from './styles';
+import { Link } from 'react-router-dom';
+import { memo } from 'react';
 
-const AuthorizedUI = () => {
+const AuthorizedUI = memo(() => {
   const dispatch = useAppDispatch();
 
   const handleLogout = () => {
@@ -27,21 +29,23 @@ const AuthorizedUI = () => {
       <IconButton
         className='toolbar__avatar-button button'
         sx={avatarPlaceholder}
+        component={Link}
+        to="/myPage"
         color='inherit'
       >
         {(!avatarUrl &&
           <AccessibleForward 
-            className='placeholder__icon'
+            className='button__placeholder'
           />)
           ||           
           <Avatar
-            className='button__image' 
+            className='button__avatar'
             src={avatarUrl ? avatarUrl: import.meta.env.VITE_FALLBACK_IMAGE}
           /> 
         }
       </IconButton>
     </>
   );
-};
+});
 
 export default AuthorizedUI;

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box, AppBar, Toolbar, IconButton, Typography, Button } from '@mui/material';
 
@@ -23,11 +24,13 @@ const NavBar = () => {
       <AppBar className='navbar__wrapper wrapper' sx={navWrapper}>
         <Toolbar className='wrapper__toolbar toolbar'>
           <IconButton 
-            className='toolbar__icon-button'
+            className='link__icon-button'
+            component={Link}
+            to="/"
             aria-label="menu"
             sx={navIcon}
           >
-            <MenuIcon className='toolbar__icon'/>
+            <MenuIcon className='link__icon'/>
           </IconButton>
           <Typography 
             className='toolbar__title' 
