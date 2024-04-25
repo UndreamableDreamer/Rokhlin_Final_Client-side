@@ -21,3 +21,15 @@ export interface AuthAction {
     error?: string
   }
 }
+
+export interface UserAction {
+  type: string,
+  payload?: UsersPayloadInterface
+}
+
+export interface UsersPayloadInterface {
+  user?: UserBackendProfile
+  posts?: Post[]
+  error?: string
+  author?: string
+}

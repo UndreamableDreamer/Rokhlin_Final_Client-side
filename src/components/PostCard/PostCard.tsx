@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 
 import Tags from '../Tags/Tags';
@@ -44,8 +45,16 @@ const PostCard = (
           sx={metaStyle} 
         >
           <Tags tags={tags} />
-          <Typography className='meta__author' sx={authorStyle} >
-            Автор: {user.login} 
+          <Typography className='meta__author author' sx={authorStyle} >
+            Автор:&nbsp;
+            <Typography             
+              component={Link}
+              sx={authorStyle}
+              className='author__login'
+              to={`/${user.login}`}
+            >
+              {user.login} 
+            </Typography>
           </Typography>
           <Typography className='meta__updated-at' sx={dateStyle}>
             Последнее обновление: {formatDate(updatedAt.toLocaleString())}

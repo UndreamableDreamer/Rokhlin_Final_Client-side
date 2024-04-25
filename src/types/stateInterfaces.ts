@@ -19,3 +19,10 @@ export interface AuthState {
   error: string | null,
   isAuthorized: boolean
 }
+
+export interface UsersState {
+  user: UserBackendProfile | null,
+  posts: Post[],
+  isLoading: boolean,
+  error: string | null
+}
